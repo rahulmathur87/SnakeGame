@@ -19,9 +19,13 @@ screen.update()
 
 game_on = True
 while game_on:
-    for segment in snake_body:
-        segment.forward(20)
     screen.update()
-    time.sleep(1)
+    time.sleep(0.1)
+    for seg_num in range(len(snake_body) - 1, 0, -1):
+        new_x = snake_body[seg_num - 1].xcor()
+        new_y = snake_body[seg_num - 1].ycor()
+        snake_body[seg_num].goto(new_x, new_y)
+    snake_body[0].forward(20)
+    snake_body[0].left(90)
 
 screen.exitonclick()
