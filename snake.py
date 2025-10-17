@@ -19,5 +19,14 @@ class Snake:
             self.snake_body[seg_num].goto(new_x, new_y)
         self.snake_body[0].forward(20)
 
-    def turn_left(self):
-        self.snake_body[0].left(90)
+    def go_up(self):
+        self.snake_body[0].setheading(90)
+
+    def go_down(self):
+        self.snake_body[0].setheading(270)
+
+    def go_left(self):
+        self.snake_body[0].setheading(180)
+
+    def go_right(self):
+        self.snake_body[0].setheading(0)
