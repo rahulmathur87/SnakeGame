@@ -20,13 +20,17 @@ class Snake:
         self.snake_body[0].forward(20)
 
     def go_up(self):
-        self.snake_body[0].setheading(90)
+        if int(self.snake_body[0].heading()) != 270:
+            self.snake_body[0].setheading(90)
 
     def go_down(self):
-        self.snake_body[0].setheading(270)
+        if int(self.snake_body[0].heading()) != 90:
+            self.snake_body[0].setheading(270)
 
     def go_left(self):
-        self.snake_body[0].setheading(180)
+        if int(self.snake_body[0].heading()) != 0:
+            self.snake_body[0].setheading(180)
 
     def go_right(self):
-        self.snake_body[0].setheading(0)
+        if int(self.snake_body[0].heading()) != 180:
+            self.snake_body[0].setheading(0)
