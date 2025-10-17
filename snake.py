@@ -19,6 +19,14 @@ class Snake:
             self.snake_body[seg_num].goto(new_x, new_y)
         self.snake_body[0].forward(20)
 
+    def collision_checker(self):
+        if self.snake_body[0].xcor() >= 290 or self.snake_body[0].xcor() <= -290:
+            return False
+        elif self.snake_body[0].ycor() >= 290 or self.snake_body[0].ycor() <= -290:
+            return False
+        else:
+            return True
+
     def go_up(self):
         if int(self.snake_body[0].heading()) != 270:
             self.snake_body[0].setheading(90)
