@@ -33,6 +33,8 @@ while game_on:
     # Checking if snake eats food
     if snake.snake_body[0].distance(food) < 15:
         food.refresh_food()
+        snake.grow()
+        scoreboard.increase_score()
 
     game_on = snake.collision_checker()
 

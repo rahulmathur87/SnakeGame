@@ -1,14 +1,27 @@
 from turtle import Turtle
 
 
-class Scoreboard:
+class Scoreboard(Turtle):
     def __init__(self):
-        pass
+        super().__init__()
+        self.score = 0
+        self.hideturtle()
+        self.color("white")
+        self.penup()
+        self.goto(0, 270)
+        self.show_score()
+
+    def show_score(self):
+        self.write(f"Score: {self.score}", align="center", font=("Arial", 20, "normal"))
+
+    def increase_score(self):
+        self.score += 1
+        self.clear()
+        self.show_score()
 
     def game_over(self):
-        self.game_over = Turtle()
-        self.game_over.hideturtle()
-        self.game_over.color("white")
-        self.game_over.penup()
-        self.game_over.goto(0, 0)
-        self.game_over.write("Game Over!", align="center", font=("Arial", 24, "normal"))
+        self.hideturtle()
+        self.color("white")
+        self.penup()
+        self.goto(0, 0)
+        self.write("Game Over!", align="center", font=("Arial", 24, "normal"))

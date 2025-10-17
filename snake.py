@@ -20,6 +20,13 @@ class Snake:
             self.snake_body[seg_num].goto(new_x, new_y)
         self.snake_body[0].forward(20)
 
+    def grow(self):
+        segment = Turtle("square")
+        segment.color("white")
+        segment.penup()
+        segment.goto(self.snake_body[-1].position())
+        self.snake_body.append(segment)
+
     def collision_checker(self):
         if self.snake_body[0].xcor() >= 290 or self.snake_body[0].xcor() <= -290:
             return False
