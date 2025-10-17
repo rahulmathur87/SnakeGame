@@ -30,6 +30,10 @@ while game_on:
     screen.update()
     time.sleep(0.1)
     snake.move()
+    # Checking if snake eats food
+    if snake.snake_body[0].distance(food) < 15:
+        food.refresh_food()
+
     game_on = snake.collision_checker()
 
 scoreboard.game_over()

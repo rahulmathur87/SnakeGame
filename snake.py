@@ -1,11 +1,12 @@
 from turtle import Turtle
 
+STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
+
 
 class Snake:
     def __init__(self):
-        starting_positions = [(0, 0), (-20, 0), (-40, 0)]
         self.snake_body = []
-        for position in starting_positions:
+        for position in STARTING_POSITIONS:
             segment = Turtle("square")
             segment.color("white")
             segment.penup()
