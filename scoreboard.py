@@ -1,5 +1,12 @@
 from turtle import Turtle
 
+try:
+    with open("highscore.txt", "r") as file:
+        content = file.read()
+        HIGHSCORE = int(content)
+except FileNotFoundError:
+    HIGHSCORE = 0
+
 
 class Scoreboard(Turtle):
     def __init__(self):
@@ -12,7 +19,7 @@ class Scoreboard(Turtle):
         self.show_score()
 
     def show_score(self):
-        self.write(f"Score: {self.score}", align="center", font=("Arial", 20, "normal"))
+        self.write(f"Score: {self.score} | Highscore: {HIGHSCORE}", align="center", font=("Arial", 20, "normal"))
 
     def increase_score(self):
         self.score += 1
@@ -21,7 +28,10 @@ class Scoreboard(Turtle):
 
     def game_over(self):
         self.hideturtle()
-        self.color("white")
+        self.color("red")
         self.penup()
         self.goto(0, 0)
         self.write("Game Over!", align="center", font=("Arial", 24, "normal"))
+        if self.score > HIGHSCORE:
+            with open("highscore.txt", "w") as score:
+                score.write(f"{self.score}")
