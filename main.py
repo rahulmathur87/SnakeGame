@@ -1,5 +1,7 @@
 from turtle import Screen
 from snake import Snake
+from scoreboard import Scoreboard
+
 import time
 # Screen setup
 screen = Screen()
@@ -7,7 +9,9 @@ screen.title("My Snake Game")
 screen.setup(600, 600)
 screen.bgcolor("black")
 screen.tracer(0)
+# Importing objects
 snake = Snake()
+scoreboard = Scoreboard()
 # Movement Key Bindings
 screen.onkey(snake.go_up, "Up")
 screen.onkey(snake.go_down, "Down")
@@ -24,4 +28,5 @@ while game_on:
     snake.move()
     game_on = snake.collision_checker()
 
+scoreboard.game_over()
 screen.exitonclick()
